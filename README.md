@@ -1,2 +1,2 @@
-# lemon-bt-unity
-lemon-bt-unity is a unity package about AI behavior.
+# Lemon-BT-Unity
+Lemon-BT-Unity is a unity package about AI behavior.
