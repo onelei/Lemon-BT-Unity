@@ -1,0 +1,7 @@
+D:\Lemon-BT-Unity\Lemon-BT-Unity\Temp\UnityVS_bin\Debug\Assembly-CSharp.dll
+D:\Lemon-BT-Unity\Lemon-BT-Unity\Temp\UnityVS_bin\Debug\Assembly-CSharp.pdb
+D:\Lemon-BT-Unity\Lemon-BT-Unity\Temp\UnityVS_bin\Debug\UnityEditor.dll
+D:\Lemon-BT-Unity\Lemon-BT-Unity\Temp\UnityVS_bin\Debug\UnityEngine.dll
+D:\Lemon-BT-Unity\Lemon-BT-Unity\Temp\UnityVS_bin\Debug\UnityEngine.UI.dll
+D:\Lemon-BT-Unity\Lemon-BT-Unity\obj\Debug\Assembly-CSharp.dll
+D:\Lemon-BT-Unity\Lemon-BT-Unity\obj\Debug\Assembly-CSharp.pdb

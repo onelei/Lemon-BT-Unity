@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityVS.Lemon-BT-Unity.CSharp", "UnityVS.Lemon-BT-Unity.CSharp.csproj", "{F73B4F32-2FF6-D417-98A5-8B964D8F944C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityVS.Lemon-BT-Unity.CSharp.Editor", "UnityVS.Lemon-BT-Unity.CSharp.Editor.csproj", "{DA380C29-20F7-ED1C-DC2D-6613A5A2777E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F73B4F32-2FF6-D417-98A5-8B964D8F944C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F73B4F32-2FF6-D417-98A5-8B964D8F944C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F73B4F32-2FF6-D417-98A5-8B964D8F944C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F73B4F32-2FF6-D417-98A5-8B964D8F944C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA380C29-20F7-ED1C-DC2D-6613A5A2777E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA380C29-20F7-ED1C-DC2D-6613A5A2777E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA380C29-20F7-ED1C-DC2D-6613A5A2777E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA380C29-20F7-ED1C-DC2D-6613A5A2777E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
