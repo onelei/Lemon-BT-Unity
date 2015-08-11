@@ -5,3 +5,7 @@ D:\Lemon-BT-Unity\Lemon-BT-Unity\Temp\UnityVS_bin\Debug\UnityEngine.dll
 D:\Lemon-BT-Unity\Lemon-BT-Unity\Temp\UnityVS_bin\Debug\UnityEngine.UI.dll
 D:\Lemon-BT-Unity\Lemon-BT-Unity\obj\Debug\Assembly-CSharp.dll
 D:\Lemon-BT-Unity\Lemon-BT-Unity\obj\Debug\Assembly-CSharp.pdb
+D:\Lemon-BT-Unity\Lemon-BT-Unity\Temp\UnityVS_bin\Debug\UnityEngine.xml
+D:\Lemon-BT-Unity\Lemon-BT-Unity\Temp\UnityVS_bin\Debug\UnityEditor.xml
+D:\Lemon-BT-Unity\Lemon-BT-Unity\Temp\UnityVS_bin\Debug\UnityEngine.UI.xml
+D:\Lemon-BT-Unity\Lemon-BT-Unity\obj\Debug\UnityVS.Lemon-BT-Unity.CSharp.csprojResolveAssemblyReference.cache
