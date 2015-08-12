@@ -81,6 +81,8 @@
   <ItemGroup>
     <Compile Include="Assets\Editor\Lemon-Bt\About\Bt_About.cs" />
     <Compile Include="Assets\Editor\Lemon-Bt\IDE\Bt_IDE.cs" />
+    <Compile Include="Assets\Editor\Lemon-Bt\IDE\Bt_IDE_Right.cs" />
+    <Compile Include="Assets\Editor\Lemon-Bt\IDE\Bt_IDE_LeftMenu.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
