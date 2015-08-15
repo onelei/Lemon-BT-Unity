@@ -14,6 +14,11 @@ public class Bt_IDE : EditorWindow
         Decorators
     }
 
+    public class node
+    {
+        public int self=-1;
+        public int other=-1;
+    }
     // create asset
     static string assetName = "LemonBt.asset";
     static string assetOutputPath = @"Assets\LemonBt";
@@ -21,7 +26,7 @@ public class Bt_IDE : EditorWindow
     public Bt_IDE()
     {
         RecList = new List<Rect>();
-        RecCircleList = new List<Rect>();
+        mRectLines = new List<node>();
     }
 
     [MenuItem("AI/LemonBt/IDE")]
@@ -33,9 +38,10 @@ public class Bt_IDE : EditorWindow
     }
 
     static int mNode_Num = 0;
+    int parentWinID = -1;
     List<Rect> RecList;
-    List<Rect> RecCircleList;
-    Rect mClickRect;
+    List<node> mRectLines;
+     Rect mClickRect;
     Assembly asm;
     Event mEvent;
     bool mb_Running = false;
@@ -49,6 +55,11 @@ public class Bt_IDE : EditorWindow
              RightClickMenu();
          }
 
+        // 鼠标拖动的时候,记录两个box;
+        if(mEvent.type==EventType.MouseDrag)
+        {
+            DrawMoveableLine();
+        }
         //打开一个通知栏;
         //if (GUILayout.Button("Lemon Behavior", GUILayout.Width(200)))
         //{
@@ -65,7 +76,7 @@ public class Bt_IDE : EditorWindow
 
       //  CheckBoxClicked();
 
-      //  DrawMoveableLine();
+      //  
     }
 
     void LoadAllBox(int num)
@@ -93,10 +104,20 @@ public class Bt_IDE : EditorWindow
             return;
         }
         Handles.BeginGUI();
-        for(int i=0;i<RecList.Count-1;++i)
+        //for(int i=0;i<RecList.Count-1;++i)
+        //{
+        //    DrawOneLine(RecList[i], RecList[i+1]);
+        //}       
+
+        for (int i = 0; i < mRectLines.Count; ++i)
         {
-            DrawOneLine(RecList[i], RecList[i+1]);
-        }         
+            int selfIndex = mRectLines[i].self;
+            int otherIndex = mRectLines[i].other;
+            if (selfIndex!=-1&&otherIndex!=-1)
+            {
+                DrawOneLine(RecList[selfIndex], RecList[otherIndex]);
+            }
+        }      
         Handles.EndGUI();
     }
 
@@ -113,20 +134,27 @@ public class Bt_IDE : EditorWindow
     Rect windowRect = new Rect(400 + 100, 100, 100, 100);
     Rect windowRect2 = new Rect(400, 100, 100, 100);
 
-    void DrawBox(int id1, int id2)
-    {
-        Handles.BeginGUI();
-        Handles.DrawBezier(windowRect.center, windowRect2.center, new Vector2(windowRect.xMax + 50f, windowRect.center.y), new Vector2(windowRect2.xMin - 50f, windowRect2.center.y), Color.white, null, 5f);
-        Handles.EndGUI();
+    //void DrawBox(int id1, int id2)
+    //{
+    //    Handles.BeginGUI();
+    //    Handles.DrawBezier(windowRect.center, windowRect2.center, new Vector2(windowRect.xMax + 50f, windowRect.center.y), new Vector2(windowRect2.xMin - 50f, windowRect2.center.y), Color.white, null, 5f);
+    //    Handles.EndGUI();
 
-        BeginWindows();
-        windowRect = GUI.Window(id1, windowRect, WindowFunction, "Box1");
-        windowRect2 = GUI.Window(id2, windowRect2, WindowFunction, "Box2");
-        EndWindows();
-    }
+    //    BeginWindows();
+    //    windowRect = GUI.Window(id1, windowRect, WindowFunction, "Box1");
+    //    windowRect2 = GUI.Window(id2, windowRect2, WindowFunction, "Box2");
+    //    EndWindows();
+    //}
 
     void WindowFunction(int windowID)
     {
+         //创建一个GUI Button  
+        if (GUILayout.RepeatButton("Link")) 
+        {  
+            Debug.Log("Click Link Button"); 
+            // 连线;
+            parentWinID = windowID;
+        }  
         GUI.DragWindow();
     }
 
@@ -196,28 +224,44 @@ public class Bt_IDE : EditorWindow
     }
 
 
-    void CheckBoxClicked()
-    {
-        for (int i = 0; i < RecList.Count;++i )
-        {
-            if(RecList[i].Contains(mEvent.mousePosition))
-            {
-                mClickRect = RecList[i];
-                Debug.Log("~~~~~~~~~~~~~~~~~~~");
-                break;
-            }
-        }
-    }
+    //void CheckBoxClicked()
+    //{
+    //    for (int i = 0; i < RecList.Count;++i )
+    //    {
+    //        if(RecList[i].Contains(mEvent.mousePosition))
+    //        {
+    //            mClickRect = RecList[i];
+             
+    //            Debug.Log("~~~~~~~~~~~~~~~~~~~");
+    //            break;
+    //        }
+    //    }
+    //}
 
     void DrawMoveableLine()
     {
-        if (mClickRect!=null)
+        for(int i = 0;i<RecList.Count;++i)
         {
-            Handles.BeginGUI();
-            Rect mouseRect = new Rect(mEvent.mousePosition.x, mEvent.mousePosition.y, 100, 100);
-            DrawOneLine(mClickRect, mouseRect);
-            Handles.EndGUI();
+            if (RecList[i].Contains(mEvent.mousePosition) &&parentWinID!=-1&& parentWinID != i)
+            {
+                // 可以连接了;
+                node _node = new node();
+                _node.self = i;
+                _node.other = parentWinID;
+                mRectLines.Add(_node);
+                //DrawOneLine(RecList[i], RecList[parentWinID]);
+                Debug.Log("~~~~~~~~~~~~~~~~~~~");
+                break;
+            }           
         }
+        //mEvent.mousePosition
+        //if (mClickRect!=null)
+        //{
+        //    Handles.BeginGUI();
+        //    Rect mouseRect = new Rect(mEvent.mousePosition.x, mEvent.mousePosition.y, 100, 100);
+        //    DrawOneLine(mClickRect, mouseRect);
+        //    Handles.EndGUI();
+        //}
      
     }
 }
