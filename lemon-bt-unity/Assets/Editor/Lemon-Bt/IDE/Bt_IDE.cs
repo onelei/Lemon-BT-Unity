@@ -94,7 +94,6 @@ public class Bt_IDE : EditorWindow
       
         }
         EndWindows();
-
     }
 
     void LoadAllLine()
@@ -104,11 +103,6 @@ public class Bt_IDE : EditorWindow
             return;
         }
         Handles.BeginGUI();
-        //for(int i=0;i<RecList.Count-1;++i)
-        //{
-        //    DrawOneLine(RecList[i], RecList[i+1]);
-        //}       
-
         for (int i = 0; i < mRectLines.Count; ++i)
         {
             int selfIndex = mRectLines[i].self;
@@ -123,7 +117,7 @@ public class Bt_IDE : EditorWindow
 
     void DrawOneLine(Rect rec1,Rect rec2)
     {
-        Color color = Color.white;
+        Color color = Color.green;
         Handles.DrawBezier(rec1.center, rec2.center,
            new Vector2(rec1.xMax + 50f, rec1.center.y),
            new Vector2(rec2.xMin - 50f, rec2.center.y),
@@ -223,21 +217,6 @@ public class Bt_IDE : EditorWindow
         }
     }
 
-
-    //void CheckBoxClicked()
-    //{
-    //    for (int i = 0; i < RecList.Count;++i )
-    //    {
-    //        if(RecList[i].Contains(mEvent.mousePosition))
-    //        {
-    //            mClickRect = RecList[i];
-             
-    //            Debug.Log("~~~~~~~~~~~~~~~~~~~");
-    //            break;
-    //        }
-    //    }
-    //}
-
     void DrawMoveableLine()
     {
         for(int i = 0;i<RecList.Count;++i)
@@ -249,20 +228,11 @@ public class Bt_IDE : EditorWindow
                 _node.self = i;
                 _node.other = parentWinID;
                 mRectLines.Add(_node);
-                //DrawOneLine(RecList[i], RecList[parentWinID]);
+                parentWinID = -1;
                 Debug.Log("~~~~~~~~~~~~~~~~~~~");
                 break;
             }           
         }
-        //mEvent.mousePosition
-        //if (mClickRect!=null)
-        //{
-        //    Handles.BeginGUI();
-        //    Rect mouseRect = new Rect(mEvent.mousePosition.x, mEvent.mousePosition.y, 100, 100);
-        //    DrawOneLine(mClickRect, mouseRect);
-        //    Handles.EndGUI();
-        //}
-     
     }
 }
 
